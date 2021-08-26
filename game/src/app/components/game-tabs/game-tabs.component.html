@@ -1,0 +1,48 @@
+<div class="game-tabs">
+    <mat-tab-group mat-align-tabs="start" backgroundColor="primary" >
+        <mat-tab label="About">
+            <p *ngIf="game.parent_platforms?.length"  class="game-tabs-par">
+                Platforms: 
+                <span *ngFor="let game of game.parent_platforms; let last = last">
+                    {{ game.platform.name }} <span *ngIf="!last">,</span>
+                </span>
+            </p>
+            <p class="game-tabs-par" *ngIf="game.publishers?.length">
+                Publishers: 
+                <span *ngFor="let publisher of game.publishers; let last = last">
+                    {{ publisher.name }} <span *ngIf="!last" > , </span>
+                </span>
+            </p>
+            <p class="game-tabs-par">
+                Website: 
+                <a href="{{ game.website }}" class="game-tabs-link" target="_blank">{{ game.website }}</a>
+            </p>
+            <div class="game-description"></div>
+            <p class="game-tabs-votes"> 
+                <span>
+                    <mat-icon class="game-votes-up"> thumb_up </mat-icon>
+                    <span class="game-votes-count" >55</span>
+                </span>
+                <span>
+                    <mat-icon class="game-votes-down"> thumb_down </mat-icon>
+                    <span class="game-votes-count" >14</span>
+                </span>
+            </p>
+        </mat-tab>
+        <mat-tab label="Screenshots">
+            <img 
+            class="game-screenshots"
+            src="https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" 
+            alt="screenshots" />
+        </mat-tab>
+        <mat-tab label="Trailer">
+            <video 
+            class="game-trailer"
+            controls
+            >
+            <source src="https://images.unsplash.com/photo-1599420186946-7b6fb4e297f0?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" type="video/mp4" />
+            Your Browser does not support the video tag.
+            </video>
+        </mat-tab>
+    </mat-tab-group>
+</div>

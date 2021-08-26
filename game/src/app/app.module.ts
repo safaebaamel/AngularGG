@@ -16,6 +16,7 @@ import { HomeComponent } from './components/home/home.component';
 import { HttpHeadersInteceptor } from './inteceptors/http-headers.inteceptor';
 import { HttpErrorsInteceptor } from './inteceptors/http-errors.inteceptor';
 import { DetailsComponent } from './components/details/details.component';
+import { GameTabsComponent } from './components/game-tabs/game-tabs.component';
 
 
 
@@ -24,7 +25,8 @@ import { DetailsComponent } from './components/details/details.component';
     AppComponent,
     SearchBarComponent,
     HomeComponent,
-    DetailsComponent
+    DetailsComponent,
+    GameTabsComponent
   ],
   imports: [
     BrowserModule,

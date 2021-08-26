@@ -2,18 +2,22 @@
     <div class="game-banner">
         <img 
         class="game-banner-img"
-        src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1189&q=80" 
+        src="{{ game.background_image }}" 
         alt=""
         />
     </div>
     <div class="game-content">
         <div class="details-wrapper">
             <div class="game-header">
-                <h1 class="game-header-title">Game Name</h1>
-                <h2 class="game-header-release-date">Release: 1.2.2002</h2>
-                <p class="game-header-genres"><span>RPG</span></p>
-            <!-- <div class="game-gauge">
-                <mwl-gauge class="two"
+                <h1 class="game-header-title">{{ game.name }}</h1>
+                <h2 class="game-header-release-date">Release: {{ game.released }}</h2>
+                <p class="game-header-genres">
+                    <span *ngFor="let genre of game.genres; let last = last">{{ genre.name }}
+                        <span *ngIf="!last">,</span>
+                    </span>
+                </p>
+             <div class="game-gauge">
+                <!-- <mwl-gauge class="two"
                     [max]="100"
                     [dialStartAngle]= "180"
                     [dialEndAngle]="0"
@@ -21,14 +25,17 @@
                     [animated]="true"
                     [color]= "getColor"
                     [animationDuration]= "2"
-                >
-                </mwl-gauge>
-                <a 
+                > 
+                </mwl-gauge> --> 
+                <!-- <a 
                     class="game-gauge-label"
                     target="_blank"
-                    href=""
-                    >Metactritic</a>
-            </div> -->
+                    href="{{ game.metacritic_url }}"
+                    >Metactritic</a> -->
+            </div>
         </div>
+        <!-- Here will go tabs -->
+        <app-game-tabs [game]="game"></app-game-tabs>
     </div>
 </div>
+<script src="node_modules/angular-gauge/bundles/angular-gauge.umd.js"></script>
